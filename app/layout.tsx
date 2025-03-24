@@ -1,15 +1,18 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Mulish , Atkinson_Hyperlegible } from "next/font/google";
 import "./globals.css";
+import { Toaster } from "@/components/ui/sonner";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const mulish = Mulish({
   subsets: ["latin"],
-});
+  variable: "--font-playfair",
+  display: "swap",
+})
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const atkinsonHyperlegible = Atkinson_Hyperlegible({
+  variable: "--font-atkinson-hyperlegible",
   subsets: ["latin"],
+  weight: ['400', '700']
 });
 
 export const metadata: Metadata = {
@@ -25,9 +28,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${atkinsonHyperlegible.className} antialiased`}
       >
         {children}
+        <Toaster/>
       </body>
     </html>
   );
